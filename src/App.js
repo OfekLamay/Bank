@@ -1,6 +1,6 @@
 import './App.css';
 import {useState} from 'react';
-import {BrowserRouter as Router, Routes , Route} from 'react-router-dom';
+import {HashRouter as Router, Routes , Route} from 'react-router-dom';
 
 // components
 import Home from './components/Home';
