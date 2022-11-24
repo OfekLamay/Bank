@@ -29,6 +29,11 @@ export default function UserPage(props) {
             alert("Can't pay negative amount");
             return;
         }
+        if (reciever.length < 1)
+        {
+            alert("Please enter the reciever's name");
+            return;
+        }
 
         props.pay(props.user.id, amount, reciever);
         document.getElementById('payAction').className='hide';

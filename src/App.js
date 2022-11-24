@@ -25,7 +25,7 @@ function App() {
       name: "Ofek",
       password: "123456",
       balance: 12000,
-      spendings: [{company: "Jordan", amount: 300, id:1}],
+      spendings: [{company: "Jordan", amount: 300, id:1}, {company: "Jordan", amount: 250, id:2}],
       pageUrl: "Ofek" 
     }
   ])
@@ -113,11 +113,9 @@ function App() {
 
     for (let i = 0; i < allCustomers[customerIndex].spendings.length; i++)
     {
-      if (allCustomers[customerIndex].spendings[i].id.toString() === dealId.toString())
-      {
-          continue;
-      }
-      customerDeals.push(allCustomers[customerIndex].spendings[i]);
+      if (allCustomers[customerIndex].spendings[i].id.toString() !== dealId.toString())
+        customerDeals.push(allCustomers[customerIndex].spendings[i]);
+      
     }
 
     allCustomers[customerIndex] = {
@@ -147,7 +145,7 @@ function App() {
       }
 
     let newSpending = allCustomers[customerIndex].spendings;
-    newSpending.push({company: reciever, amount: amount, id:allCustomers[customerIndex].spendings.length});
+    newSpending.push({company: reciever, amount: amount, id:allCustomers[customerIndex].spendings.length + 1});
 
     allCustomers[customerIndex] = {
       id: id,
