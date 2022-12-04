@@ -24,13 +24,13 @@ export default function Admin(props) {
           <h2><u><b>Users to approve</b></u></h2>
           <br/>
           {props.approveCustomers.map((customer) => {
-              return <UserApprove user={customer} approveCustomer={props.approveCustomer} noApprove = {props.noApprove} /> 
+              return <UserApprove key={customer.id} user={customer} approveCustomer={props.approveCustomer} noApprove = {props.noApprove} /> 
             })}
           <br/>
           <h2><u><b>Transactions made by each user</b></u></h2>
           <br/>
           {props.allCustomers.map((customer) => {
-              return <CustomerPreview user={customer} deleteUser={props.deleteUser} deleteDeal={props.deleteDeal}/> 
+              return <CustomerPreview key={customer.id} user={customer} deleteUser={props.deleteUser} deleteDeal={props.deleteDeal}/> 
             })}
       </div>
     )}
@@ -44,7 +44,7 @@ export default function Admin(props) {
         <h2><u><b>Transactions made by each user</b></u></h2>
         <br/>
         {props.allCustomers.map((customer) => {
-            return <CustomerPreview user={customer} deleteUser={props.deleteUser} deleteDeal={props.deleteDeal}/> 
+            return <CustomerPreview key={customer.id} user={customer} deleteUser={props.deleteUser} deleteDeal={props.deleteDeal}/> 
           })}
     </div>
   )}

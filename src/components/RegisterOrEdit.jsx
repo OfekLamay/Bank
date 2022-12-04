@@ -181,7 +181,7 @@ export default function RegisterOrEdit(props) {
         }
     }
 
-    if (props.type == "Edit") {
+    if (props.type === "Edit") {
         return (
             <div>
                 <Header title={"Edit"}/>
@@ -200,7 +200,7 @@ export default function RegisterOrEdit(props) {
             </div>
         )
     }
-    else if (props.type == "Register") {
+    else if (props.type === "Register") {
         return (
             <div>
                 <Header title={"Register"}/>

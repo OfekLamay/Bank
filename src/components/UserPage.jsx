@@ -52,7 +52,7 @@ export default function UserPage(props) {
         <div className='flexboxContainer'>
             <div className='flexboxContainerLine'>
                 <UserOption option={"BALANCE"} action={showBalance}/>
-                <UserOption option={"ACTION"} action={showPaymentPart}/>
+                <UserOption option={"PAY"} action={showPaymentPart}/>
             </div>
             <br/> <br/>
             <div className='flexboxContainerLine'>

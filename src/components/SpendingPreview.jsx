@@ -10,7 +10,7 @@ export default function SpendingPreview(props) {
   return (
     <div>
 
-        <div className='spendingContainerLine'>
+        <div key={props.spendingData.id} className='spendingContainerLine'>
           {props.spendingData.company} : {props.spendingData.amount}
           <div onClick={deleteDeal} className='clickDeal'>X</div>
         </div>

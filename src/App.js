@@ -30,7 +30,16 @@ function App() {
     }
   ])
 
-  const [customersToApprove, setCustomersToApprove] = useState([])
+  const [customersToApprove, setCustomersToApprove] = useState([
+    {
+      id: 123456764,
+      name: "Ofeki",
+      password: "1234567",
+      balance: 120300,
+      spendings: [],
+      pageUrl: "Ofeki" 
+    }
+  ])
 
   const checkUserCredentials = (username, password) => {
 
@@ -249,7 +258,7 @@ function App() {
           <Route path={'/edit'} element={<RegisterOrEdit type={"Edit"} editUser={editCustomer} isExist={doesUserExist}/>} />
           <Route path={'/Admin'} element={<Admin noApprove = {removeUserToApprove} approveCustomer = {addApprovedCustomer} approveCustomers = {customersToApprove} allCustomers = {customersData} deleteUser={deleteUser} deleteDeal={deleteSpending}/>} />
           {customersData.map((customer) => {
-            return <Route path={`/${customer.pageUrl}`} element={<UserPage user={customer} pay={performAction}/>} />
+            return <Route key={`/${customer.id}`} path={`/${customer.pageUrl}`} element={<UserPage user={customer} pay={performAction}/>} />
           })}
           
         </Routes>

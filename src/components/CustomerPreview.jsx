@@ -4,25 +4,25 @@ import SpendingPreview from './SpendingPreview';
 
 export default function CustomerPreview(props) {
 
-    const [detailsID, setDetailsID] = useState(props.user.id)
+    // const [detailsID, setDetailsID] = useState(props.user.id)
     const [signToShow, setSignToShow] = useState("+")
 
     const showDetails = () => {
-      let currentCName = document.getElementById(detailsID).className;
-      if (currentCName == "hide")
+      let currentCName = document.getElementById(props.user.id).className;
+      if (currentCName === "hide")
       {
-        document.getElementById(detailsID).className='show';
+        document.getElementById(props.user.id).className='show';
         setSignToShow("-")
       }
       else
       {
-        document.getElementById(detailsID).className='hide';
+        document.getElementById(props.user.id).className='hide';
         setSignToShow("+")
       }
     }
 
     const delUser = () => {
-        props.deleteUser(detailsID)
+        props.deleteUser(props.user.id)
     }
 
   return (
@@ -38,9 +38,9 @@ export default function CustomerPreview(props) {
 
         
         
-        <div id={detailsID} className='hide'>
+        <div id={props.user.id} className='hide'>
         {props.user.spendings.map((deals) => {
-            return <SpendingPreview spendingData={deals} deleteDeal={props.deleteDeal} userId = {detailsID}/> 
+            return <SpendingPreview key={deals.id} spendingData={deals} deleteDeal={props.deleteDeal} userId = {props.user.id}/> 
           })}
         </div>
     </div>
